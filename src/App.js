@@ -1,10 +1,11 @@
 import './App.css';
+import HomePage from './Components/HomePage';
+import SideNavBar from './Components/NavBars/SideNavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to onePlace</h1>
-      <h3>A place where all teams can manage data</h3>
+      <HomePage />
     </div>
   );
 }
