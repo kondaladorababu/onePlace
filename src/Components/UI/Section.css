@@ -1,0 +1,40 @@
+.section-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow-y: scroll;
+}
+
+.section-left {
+  flex-basis: 80%;
+}
+
+.section-right {
+  margin-left: 30px;
+  flex-basis: 20%;
+}
+
+.section-Heading {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f7f7f7;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-bottom: 10px;
+}
+
+.section-title {
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.analytics{
+  height: 80%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+}

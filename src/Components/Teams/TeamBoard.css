@@ -1,0 +1,5 @@
+.team-board {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+}

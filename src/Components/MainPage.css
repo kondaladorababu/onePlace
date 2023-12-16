@@ -1,0 +1,13 @@
+.main-page{
+    display: flex;
+    flex-direction: column;
+}
+
+/* .top-nav-bar{
+    flex-basis: 8%;
+}
+
+.team-board{
+    flex-basis: 92%;
+} */
+

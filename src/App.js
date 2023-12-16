@@ -1,6 +1,5 @@
 import './App.css';
 import HomePage from './Components/HomePage';
-import SideNavBar from './Components/NavBars/SideNavBar';
 
 function App() {
   return (

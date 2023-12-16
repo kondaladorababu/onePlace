@@ -1,3 +1,14 @@
-.home-page{
-    height: 100%;
+.home-page {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.side-Nav-bar {
+  flex-basis: 30%;
+}
+
+.main-page {
+  flex: 70%;
 }
