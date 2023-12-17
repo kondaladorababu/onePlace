@@ -1,5 +1,5 @@
 import React from 'react';
-import '../UI/Section.css';
+import '../Sections/Section.css';
 
 function Section(props) {
     const Icon = props.Icon;

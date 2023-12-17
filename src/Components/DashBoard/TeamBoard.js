@@ -1,15 +1,15 @@
 import React from 'react';
-import '../Teams/TeamBoard.css';
+import './TeamBoard.css';
 import TeamItem from './TeamItem';
-import Section from '../UI/Section';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import Section from '../Sections/Section';
 
 function TeamBoard() {
 
     return (
         <Section SectionTitle={'DashBoard'} Icon={SpaceDashboardIcon}>
             <div className='team-board'>
-                <TeamItem TeamName={'OneHome'}  />
+                <TeamItem TeamName={'OneHome'} />
                 <TeamItem TeamName={'Matrix'} />
                 <TeamItem TeamName={'Trestle'} />
                 <TeamItem TeamName={'Phoenix'} />

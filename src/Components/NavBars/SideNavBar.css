@@ -13,6 +13,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
+
+  border-radius: 10px;
 }
 
 .nav-top {
@@ -20,6 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .nav-bottom {
@@ -50,27 +55,24 @@
 }
 
 .close-nav {
-  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.minimize-side-nav-bar {
+  padding: 20px 5px;
+  width: auto;
+}
+
+.profile-image-min {
+  width: 40px;
+  height: 40px;
 }
 
 @media screen and (max-width: 768px) {
-  .sidenavbar {
-    position: relative;
-  }
-
-  .close-nav {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .close-side-navBar {
+  .minimize-side-nav-bar {
     font-size: 25px;
     font-weight: bold;
   }
-}
-
-.close-side-nav-bar {
-  display: none;
 }

@@ -4,8 +4,14 @@
   align-items: center;
 
   padding: 20px 35px 20px 30px;
+  /* background-color: #c3d8ff; */
   background-color: #fff;
+  border-radius: 10px;
   color: black;
+
+  /* box-sizing: border-box; */
+  margin: 0px 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Updated shadow */
 }
 
 .left {
@@ -20,8 +26,8 @@
   justify-content: center;
 }
 
-.logo-icon{
-  font-size: 38px;
+.logo-icon {
+  font-size: 32px !important;
 }
 
 .search-bar {

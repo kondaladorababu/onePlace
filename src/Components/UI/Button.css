@@ -1,0 +1,29 @@
+.the-button {
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 5px;
+  width: inherit;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-color{
+  color: rgb(0, 0, 0);
+  /* background-color: #0f9d58; */
+  background-color: #fe8687;
+}
+
+.edit-color {
+  color: white;
+  background-color: #6cb2eb;
+}
+
+@media only screen and (max-width: 768px) {
+  .the-button {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}

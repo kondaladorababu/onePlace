@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Teams/TeamItem.css';
+import './TeamItem.css';
 
 function TeamItem(props) {
     return (

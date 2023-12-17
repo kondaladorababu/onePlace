@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: space-around;
   overflow-y: scroll;
+  color: #1A237E;
 }
 
 .section-left {
@@ -16,8 +17,8 @@
 }
 
 .section-Heading {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #f7f7f7;
+  /* margin-bottom: 30px; */
+  border-bottom: 1px solid #008080;
 
   display: flex;
   justify-content: flex-start;
@@ -37,4 +38,6 @@
   width: 100%;
   background-color: #fff;
   border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
 }

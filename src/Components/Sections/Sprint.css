@@ -1,0 +1,35 @@
+.sprint-container {
+  border-radius: 10px;
+  height: 75vh;
+  overflow-y: scroll;
+
+  box-sizing: border-box;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-bottom: 10px;
+}
+
+.sprint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: inherit;
+  border-bottom: 1px solid grey;
+}
+
+.sprint-heading {
+  text-align: start;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 5px;
+  flex-basis: 100%;
+}
+
+.sprint-heading >Button{
+  flex-basis: 20%;
+}

@@ -1,0 +1,21 @@
+.onehome-dashboard-container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+}
+
+.onehome-dashboard-left {
+  flex-basis: 70%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.onehome-dashboard-right {
+  margin-left: 2%;
+  flex-basis: 30%;
+}
