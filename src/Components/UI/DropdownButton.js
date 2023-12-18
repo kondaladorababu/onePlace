@@ -23,7 +23,7 @@ function DropdownButton(props) {
             break;
     }
 
-    cssClasses = `${cssClasses} dropdownbutton-container`;
+    cssClasses = `dropdownbutton-container`;
 
     return (
         <div className={cssClasses} {...props}>

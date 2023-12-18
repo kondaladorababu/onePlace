@@ -8,14 +8,17 @@ function Button(props) {
         case 'new':
             cssClasses = 'new-color';
             break;
-        case 'completed':
-            cssClasses = 'completed-color';
-            break;
-        case 'notStarted':
-            cssClasses = 'not-started-color';
-            break;
         case 'edit':
             cssClasses = 'edit-color';
+            break;
+        case 'not-Started':
+            cssClasses = 'not-started-color';
+            break;
+        case 'inProgress':
+            cssClasses = 'progress-color';
+            break;
+        case 'completed':
+            cssClasses = 'completed-color';
             break;
         default:
             break;

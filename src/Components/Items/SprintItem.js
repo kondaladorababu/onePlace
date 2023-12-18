@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Items/SprintItem.css';
 import Button from '../UI/Button';
-import DropdownButton from '../UI/DropdownButton';
 
 function SprintItem() {
-    const [showDropdown, setShowDropdown] = useState(false);
-
-    const toggleDropdown = () => {
-        setShowDropdown(!showDropdown);
-    };
 
     return (
         <div className='sprint-item-container'>
@@ -32,11 +26,12 @@ function SprintItem() {
 
                 <div className="sprint-status">
                     <h5 className='sprint-status-heading'>Status</h5>
-                    <DropdownButton open={showDropdown} onClick={toggleDropdown} status={'completed'}>{'completed'} </DropdownButton>
+                    <Button status={'inProgress'}>{'Not started'}</Button>
+                    {/* <DropdownButton open={showDropdown} onClick={toggleDropdown} status={'completed'}>{'completed'} </DropdownButton>
                     {showDropdown && (<div className="status-dropdown-content">
                         <p>Inprogress</p>
                         <p>Not Started</p>
-                    </div>)}
+                    </div>)} */}
                 </div>
 
                 <Button status={'edit'}> Edit </Button>

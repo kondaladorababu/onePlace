@@ -10,7 +10,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.new-color{
+
+.new-color {
   color: rgb(0, 0, 0);
   /* background-color: #0f9d58; */
   background-color: #fe8687;
@@ -20,6 +21,25 @@
   color: white;
   background-color: #6cb2eb;
 }
+
+
+
+/* Status Buttons */
+.not-started-color {
+  color: rgb(255, 255, 255);
+  background-color: #001f3f;
+}
+
+
+.progress-color {
+  background-color: #ff854e;
+}
+
+.completed-color {
+  color: white;
+  background-color: #28a745;
+}
+
 
 @media only screen and (max-width: 768px) {
   .the-button {

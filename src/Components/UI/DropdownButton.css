@@ -14,16 +14,3 @@
   font-size: 14px;
   font-weight: 600;
 }
-
-.not-started-color {
-  background-color: #6cb2eb;
-}
-
-.progress-color {
-  background-color: #ff854e;
-}
-
-.completed-color {
-  color: white;
-  background-color: #28a745;
-}
