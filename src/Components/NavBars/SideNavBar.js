@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../NavBars/SideNavBar.css';
 import HeaderIcon from '../UI/HeaderIcon';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
@@ -9,6 +9,8 @@ import LabelRoundedIcon from '@mui/icons-material/LabelRounded';
 import ReportGmailerrorredRoundedIcon from '@mui/icons-material/ReportGmailerrorredRounded';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import UIContext from '../../Store/UIContextProvider';
 
 function SideNavBar() {
     const [maxNav, setMaxNav] = useState(true);
@@ -16,12 +18,26 @@ function SideNavBar() {
         setMaxNav(!maxNav);
     }
 
+    const UICtx = useContext(UIContext);
+    const closSideNav = () => {
+        UICtx.handleSideMenu();
+    }
+
     return (
-        <div className={`sidenavbar ${!maxNav ? 'minimize-side-nav-bar' : ''}`}>
+        <div className={`${!maxNav ? 'minimize-side-nav-bar' : ''} 
+        ${UICtx.sideMenuStatus ? '' : 'hide-nav-bar'} 
+        sidenavbar`}
+        >
             <div className="close-nav" onClick={handleSideNavBar}>
                 {maxNav && <CloseIcon />}
                 {!maxNav && <KeyboardArrowRightIcon />}
             </div>
+
+            {!maxNav &&
+                <div className="hide-nav-icon" onClick={closSideNav}>
+                    {<ArrowCircleLeftIcon className='arrow-icon-left' />}
+                </div>
+            }
             <div className="nav-top">
                 <div className="profile">
                     <img className={`profile-image ${!maxNav ? 'profile-image-min' : ''}`} src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702598400&semt=ais" alt="" />
@@ -61,7 +77,7 @@ function SideNavBar() {
 
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

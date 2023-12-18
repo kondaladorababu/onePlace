@@ -60,6 +60,10 @@
   right: 5px;
 }
 
+.hide-nav-icon {
+  display: none;
+}
+
 .minimize-side-nav-bar {
   padding: 20px 5px;
   width: auto;
@@ -71,8 +75,43 @@
 }
 
 @media screen and (max-width: 768px) {
+  .sidenavbar {
+    height: 90vh;
+    width: 180px;
+    padding: 20px 10px;
+
+    position: absolute;
+    top: 8px;
+    left: 7px;
+  }
+
   .minimize-side-nav-bar {
     font-size: 25px;
     font-weight: bold;
+    width: auto;
+
+    position: absolute;
+    top: 8px;
+    left: 7px;
+  }
+
+  .hide-nav-icon {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 60px;
+    color: rgb(61, 80, 253);
+  }
+
+  .hide-nav-bar {
+    display: none;
+  }
+
+  .arrow-icon-left {
+    font-size: 24px !important;
+  }
+
+  .hide-side-nav-mobile {
+    display: none;
   }
 }
