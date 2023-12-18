@@ -9,8 +9,8 @@ function HomePage() {
         <div className='home-page'>
             <SideNavBar className='side-Nav-bar' />
 
-            {/* <MainPage className='main-page' /> */}
-            <OneHomeDashBoard className='main-page' />
+            <MainPage className='main-page' />
+            {/* <OneHomeDashBoard className='main-page' /> */}
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Sections/Section.css';
+import Activities from './Activities';
 
 function Section(props) {
     const Icon = props.Icon;
@@ -21,7 +22,7 @@ function Section(props) {
                     <span className='section-title'>Anaylytics</span>
                 </div>
                 <div className="analytics">
-
+                    <Activities />
                 </div>
             </div>
         </div>

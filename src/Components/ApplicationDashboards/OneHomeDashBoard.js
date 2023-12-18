@@ -2,6 +2,7 @@ import React from 'react';
 import './OneHomeDashBoard.css';
 import Sprint from '../Sections/Sprint';
 import HeaderSearch from '../Sections/HeaderSearch';
+import Activities from '../Sections/Activities';
 
 function OneHomeDashBoard() {
     return (
@@ -11,7 +12,7 @@ function OneHomeDashBoard() {
                 <Sprint />
             </div>
             <div className="onehome-dashboard-right">
-                <HeaderSearch />
+                <Activities />
             </div>
         </div>
     )

@@ -5,6 +5,7 @@
   justify-content: space-around;
   overflow-y: scroll;
   color: #1A237E;
+  height: 100%;
 }
 
 .section-left {
@@ -14,10 +15,10 @@
 .section-right {
   margin-left: 30px;
   flex-basis: 20%;
+  height: auto;
 }
 
 .section-Heading {
-  /* margin-bottom: 30px; */
   border-bottom: 1px solid #008080;
 
   display: flex;
@@ -34,10 +35,7 @@
 }
 
 .analytics{
-  height: 80%;
+  height: 100%;
   width: 100%;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 20px;
+  padding-top: 20px;
 }

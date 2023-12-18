@@ -1,0 +1,30 @@
+.ativities-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: inherit;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.activities-top,
+.activities-bottom {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.activities-top {
+  flex-basis: 70%;
+  color: #000;
+}
+
+.activities-bottom {
+    flex-basis: 30%;
+    color: #fff;
+    background-color: #008b76;
+}
