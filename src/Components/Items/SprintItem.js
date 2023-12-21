@@ -11,9 +11,9 @@ function SprintItem() {
                 <div className="sprint-duration">
                     <h4 className='sprint-duration-title'>Duration :-</h4>
                     <div className="sprint-duration-time">
-                        <p className='sprint-start-date'>09-12-23</p>
-                        <span> to </span>
-                        <p className='sprint-end-date'> 17-12-23</p>
+                        <p className='sprint-date sprint-start-date'>09-12-23</p>
+                        <span className='sprint-middle'> to </span>
+                        <p className='sprint-date sprint-end-date'> 17-12-23</p>
                     </div>
                 </div>
                 <div className="sprint-team">

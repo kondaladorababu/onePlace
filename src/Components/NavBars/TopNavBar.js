@@ -2,7 +2,7 @@ import '../NavBars/TopNavBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import UIContext from '../../Store/UIContextProvider';
 
 function TopNavBar() {

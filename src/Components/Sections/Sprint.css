@@ -30,6 +30,25 @@
   flex-basis: 100%;
 }
 
-.sprint-heading >Button{
-  flex-basis: 20%;
+
+@media only screen and (max-width: 768px) {
+  .sprint-container {
+    height: 80vh;
+    overflow-y: scroll;
+    gap: 0.5em;
+  }
+
+  .sprint-header {
+    padding: 6px;
+    width: inherit;
+  }
+
+  .sprint-heading {
+    text-align: start;
+    color: black;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 5px;
+    flex-basis: 100%;
+  }
 }

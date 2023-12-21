@@ -59,33 +59,70 @@
   position: relative;
 }
 
+@media only screen and (max-width: 768px) {
+  .sprint-item-container {
+    padding: 10px 10px;
+  }
 
+  .sprint-item-container:hover {
+    background-color: #add8e6;
+  }
 
-/* .status-dropdown-content {
-  position: absolute;
-  top: 110%;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 10px;
-  overflow: hidden;
-  width: inherit;
+  .sprint-item-left {
+    gap: 0.1em;
+  }
 
-  display: flex;
-  flex-direction: column;
+  .sprint-name {
+    font-size: 14px;
+  }
+
+  .sprint-duration {
+    gap: 0.1em;
+    text-align: center;
+  }
+
+  .sprint-duration-title {
+    font-size: 14px;
+  }
+
+  .sprint-duration-time {
+    gap: 0.3em;
+  }
+
+  .sprint-date {
+    font-size: 13px;
+  }
+
+  .sprint-middle {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .sprint-team {
+    display: flex;
+    gap: 0.2em;
+  }
+
+  .sprint-team-name-heading {
+    font-size: 13px;
+  }
+
+  .sprint-team-name {
+    font-size: 14px;
+  }
+
+  .sprint-item-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sprint-status {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    width: 70px;
+    margin-bottom: 5px;
+  }
+
 }
-
-.status-dropdown-content > p {
-  font-size: 12px;
-  font-weight: 600;
-  padding: 8px 8px;
-
-  text-decoration: none;
-  color: #333;
-}
-
-.status-dropdown-content p:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
-} */
