@@ -1,0 +1,14 @@
+.new-sprint-heading{
+  text-align: center;
+}
+
+
+.control-row {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+}

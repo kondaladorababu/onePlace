@@ -14,6 +14,7 @@
 .new-color {
   color: rgb(0, 0, 0);
   /* background-color: #0f9d58; */
+  width:120px;
   background-color: #fe8687;
 }
 
@@ -21,6 +22,7 @@
   color: white;
   background-color: #6cb2eb;
 }
+
 
 
 
@@ -37,6 +39,8 @@
 
 .completed-color {
   color: white;
+  width:120px;
+
   background-color: #28a745;
 }
 

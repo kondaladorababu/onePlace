@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { UIContextProvider } from './Store/UIContextProvider';
+import NewSprintModal from './Components/Modals/NewSprintModal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UIContextProvider>
       <App />
+      <NewSprintModal />
     </UIContextProvider>
   </React.StrictMode>
 );
