@@ -1,13 +1,27 @@
-.new-sprint-heading{
+.new-sprint-heading {
   text-align: center;
 }
 
+.new-sprint-content {
+  width: auto;
+}
 
 .control-row {
   margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
   gap: 2rem;
+}
+
+.control-error {
+  color: rgba(255, 9, 9, 0.884);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.please-fill-message {
+  font-weight: 600;
+  color: rgba(255, 9, 9, 0.884);
 }
 
 @media screen and (max-width: 768px) {

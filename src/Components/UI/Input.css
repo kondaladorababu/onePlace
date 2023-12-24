@@ -1,32 +1,39 @@
 .user-input {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-input label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.user-input input {
+  width: 100%;
+  max-width: 20rem;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.5rem 0.7rem ;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .user-input {
     margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
   }
   
+  .user-input input {
+    padding: 5px 8px;
+    width: inherit;
+  }
+
   .user-input label {
-    font-weight: bold;
+    font-size: 12px;
     margin-bottom: 0.5rem;
   }
-  
-  .user-input input {
-    width: 100%;
-    max-width: 20rem;
-    font: inherit;
-    padding: 0.5rem;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .user-input input {
-      /* width: 80%; */
-      padding: 5px 0px;
-      /* border: none; */
-    }
-    .user-input label {
-      font-size: 12px;
-      margin-bottom: 0.5rem;
-    }
-  }
+}

@@ -4,17 +4,16 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
-  padding: 5px 5px;
+  padding: 5px 20px;
   width: inherit;
   color: #000000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 .new-color {
   color: rgb(0, 0, 0);
   /* background-color: #0f9d58; */
-  width:120px;
+  /* width: 120px; */
   background-color: #fe8687;
 }
 
@@ -23,15 +22,11 @@
   background-color: #6cb2eb;
 }
 
-
-
-
 /* Status Buttons */
 .not-started-color {
   color: rgb(255, 255, 255);
   background-color: #001f3f;
 }
-
 
 .progress-color {
   background-color: #ff854e;
@@ -39,16 +34,15 @@
 
 .completed-color {
   color: white;
-  width:120px;
-
   background-color: #28a745;
 }
 
-
 @media only screen and (max-width: 768px) {
   .the-button {
-    padding: 8px 2px;
     font-size: 10px;
+    font-weight: bold;
+    padding: 5px 20px;
+    width: inherit;
   }
 
   .new-color {
