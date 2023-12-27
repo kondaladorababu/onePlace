@@ -11,13 +11,13 @@
 
 .user-input input {
   width: 100%;
-  max-width: 20rem;
+  max-width: 15rem;
   font-size: 14px;
   font-weight: 500;
   padding: 0.5rem 0.7rem ;
-  border-radius: 10px;
   outline: none;
   border: none;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -30,6 +30,7 @@
   .user-input input {
     padding: 5px 8px;
     width: inherit;
+    max-width: 8rem;
   }
 
   .user-input label {

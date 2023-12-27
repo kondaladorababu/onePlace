@@ -17,6 +17,10 @@ export function UIContextProvider(props) {
         setModalType('newSprint');
     }
 
+    const handleEditSprintModal = () => {
+        setModalType('editSprint');
+    }
+
     const closeModal = () => {
         setModalType('');
     }
@@ -27,6 +31,7 @@ export function UIContextProvider(props) {
         modalType: modalType,
         handleNewSprintModal,
         closeModal,
+        handleEditSprintModal,
     }
 
     return (

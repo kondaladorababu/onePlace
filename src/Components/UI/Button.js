@@ -11,13 +11,13 @@ function Button(props) {
         case 'edit':
             cssClasses = 'edit-color';
             break;
-        case 'not-Started':
+        case 'Not Started':
             cssClasses = 'not-started-color';
             break;
-        case 'inProgress':
+        case 'In-Progress':
             cssClasses = 'progress-color';
             break;
-        case 'completed':
+        case 'Completed':
             cssClasses = 'completed-color';
             break;
         default:

@@ -4,14 +4,19 @@ import './index.css';
 import App from './App';
 import { UIContextProvider } from './Store/UIContextProvider';
 import NewSprintModal from './Components/Modals/NewSprintModal';
+import DataContextProvider from './Store/DataContextProvider';
+import ExistingSprintItemModal from './Components/Modals/ExistingSprintItemModal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UIContextProvider>
-      <App />
-      <NewSprintModal />
-    </UIContextProvider>
+    <DataContextProvider>
+      <UIContextProvider>
+        <App />
+        <NewSprintModal />
+        <ExistingSprintItemModal />
+      </UIContextProvider>
+    </DataContextProvider>
   </React.StrictMode>
 );
 
