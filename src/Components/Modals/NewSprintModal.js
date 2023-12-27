@@ -83,7 +83,26 @@ function NewSprintModal() {
 
         if (isDataValid) {
             addNewSprintItem(newSprintData);
-            UICtx.closeModal();
+            
+            //clear the form & onBlur statuses
+            setNewSprintData({
+                id: '',
+                sprintVersion: '',
+                sprintStartDate: '',
+                sprintEndDate: '',
+                sprintTeamName: '',
+                sprintStatus: ''
+            });
+
+            setDidEdit({
+                sprintVersion: false,
+                sprintStartDate: false,
+                sprintEndDate: false,
+                sprintTeamName: false,
+                sprintStatus: false,
+            });
+
+            UICtx.handleNewSprintAddedModal();
         } else {
             if (didEdit.sprintVersion === false) {
                 const id = 'sprintVersion';

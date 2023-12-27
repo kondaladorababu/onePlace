@@ -76,7 +76,7 @@ function ExistingSprintItemModal() {
 
         if (isDataValid) {
             editSprintItem(currentSprintData);
-            UICtx.closeModal();
+            UICtx.handleSprintUpdatedModal();
         } else {
             return;
         }

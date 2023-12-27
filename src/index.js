@@ -6,6 +6,7 @@ import { UIContextProvider } from './Store/UIContextProvider';
 import NewSprintModal from './Components/Modals/NewSprintModal';
 import DataContextProvider from './Store/DataContextProvider';
 import ExistingSprintItemModal from './Components/Modals/ExistingSprintItemModal';
+import SprintStatusModal from './Components/Modals/SprintStatusModal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <UIContextProvider>
         <App />
         <NewSprintModal />
+        <SprintStatusModal />
         <ExistingSprintItemModal />
       </UIContextProvider>
     </DataContextProvider>

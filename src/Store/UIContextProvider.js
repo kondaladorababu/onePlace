@@ -21,6 +21,18 @@ export function UIContextProvider(props) {
         setModalType('editSprint');
     }
 
+    const handleNewSprintAddedModal = () => {
+        setModalType('addedSuccesfully');
+    }
+
+    const handleSprintDeletedModal = () => {
+        setModalType('deletedSuccesfully');
+    }
+
+    const handleSprintUpdatedModal = () => {
+        setModalType('updatedSuccesfully');
+    }
+
     const closeModal = () => {
         setModalType('');
     }
@@ -32,6 +44,9 @@ export function UIContextProvider(props) {
         handleNewSprintModal,
         closeModal,
         handleEditSprintModal,
+        handleNewSprintAddedModal,
+        handleSprintDeletedModal,
+        handleSprintUpdatedModal
     }
 
     return (

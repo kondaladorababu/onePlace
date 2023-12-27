@@ -21,6 +21,7 @@ function SprintItem(props) {
 
     const deleteSprintItem = () => {
         removeSprintItem(id);
+        UICtx.handleSprintDeletedModal();
     }
 
     return (
