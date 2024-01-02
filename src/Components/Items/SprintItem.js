@@ -10,7 +10,7 @@ function SprintItem(props) {
     const { id, sprintVersion, sprintStartDate, sprintEndDate, sprintTeamName, sprintStatus } = props;
 
     const DataCtx = useContext(DataContext);
-    const { removeSprintItem, getEditingItemDetails } = DataCtx;
+    const { getEditingItemDetails } = DataCtx;
 
     const UICtx = useContext(UIContext);
 
@@ -20,8 +20,8 @@ function SprintItem(props) {
     }
 
     const deleteSprintItem = () => {
-        removeSprintItem(id);
-        UICtx.handleSprintDeletedModal();
+        getEditingItemDetails(id);
+        UICtx.ShowDeleteWarningModal();
     }
 
     return (

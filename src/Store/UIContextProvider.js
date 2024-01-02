@@ -25,6 +25,10 @@ export function UIContextProvider(props) {
         setModalType('addedSuccesfully');
     }
 
+    const ShowDeleteWarningModal = () => {
+        setModalType('DeleteWarningModal');
+    }
+
     const handleSprintDeletedModal = () => {
         setModalType('deletedSuccesfully');
     }
@@ -46,6 +50,7 @@ export function UIContextProvider(props) {
         handleEditSprintModal,
         handleNewSprintAddedModal,
         handleSprintDeletedModal,
+        ShowDeleteWarningModal,
         handleSprintUpdatedModal
     }
 

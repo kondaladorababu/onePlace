@@ -4,12 +4,16 @@ import { DataContext } from '../../Store/DataContextProvider';
 import Modal from '../Modals/Modal.js'
 import Button from '../UI/Button';
 import Input from '../UI/Input';
+import DropdownButton from '../UI/DropdownButton.js';
 
 function ExistingSprintItemModal() {
     const UICtx = useContext(UIContext);
 
     const DataCtx = useContext(DataContext);
     const { editSprintItem, CurrentItemDetails } = DataCtx;
+
+    const [showDropdown, setShowDropdown] = useState(false);
+
 
     const [currentSprintData, setcurrentSprintData] = useState({
         id: '',
@@ -39,7 +43,6 @@ function ExistingSprintItemModal() {
     const sprintStartDateNotValid = didEdit.sprintStartDate && currentSprintData.sprintStartDate === '';
     const sprintEndDateNotValid = didEdit.sprintEndDate && currentSprintData.sprintEndDate === '';
     const sprintTeamNameNotValid = didEdit.sprintTeamName && currentSprintData.sprintTeamName === '';
-    const sprintStatusNotValid = didEdit.sprintStatus && currentSprintData.sprintStatus === '';
 
     function handleInputChange(e) {
         const { id, value } = e.target;
@@ -87,6 +90,15 @@ function ExistingSprintItemModal() {
         UICtx.closeModal();
     }
 
+    const updateStatus = (value) => {
+        const id = 'sprintStatus'
+        setcurrentSprintData(prevData => ({
+            ...prevData,
+            [id]: value,
+        }));
+        setShowDropdown(!showDropdown)
+    }
+
 
     return (
         <Modal open={UICtx.modalType === 'editSprint'}>
@@ -114,10 +126,28 @@ function ExistingSprintItemModal() {
                     <div className="new-sprint-team-name">
                         <Input label={"New Sprint Team Name"} type={"text"} id={"sprintTeamName"} value={currentSprintData.sprintTeamName} onChange={handleInputChange} onBlur={handleInputBlur} />
                         <div className="control-error">{(sprintTeamNameNotValid) && <p>Please Enter Sprint Team Name</p>}</div>
+                    </div>
 
-                        <Input label={"Sprint Status"} type={"text"} id={"sprintStatus"} value={currentSprintData.sprintStatus} onChange={handleInputChange} onBlur={handleInputBlur} />
-                        <div className="control-error">{(sprintStatusNotValid) && <p>Please Select a Valid Sprint Status</p>}</div>
+                    <div className="new-sprint-status">
+                        <Input
+                            label={"Sprint Status"}
+                            type={"text"}
+                            id={"sprintStatus"}
+                            value={currentSprintData.sprintStatus}
+                            readOnly />
 
+                        <DropdownButton
+                            className='status-dropdown'
+                            open={showDropdown}
+                            onClick={() => { setShowDropdown(!showDropdown) }}>
+                        </DropdownButton>
+                        {showDropdown && (
+                            <div className="status-dropdown-content">
+                                <p onClick={() => { updateStatus('Not Started') }}>Not Started</p>
+                                <p onClick={() => { updateStatus('In-Progress') }}>In-Progress</p>
+                                <p onClick={() => { updateStatus('Completed') }}>Completed</p>
+                            </div>
+                        )}
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@ import '../Modals/NewSprintModal.css';
 import Modal from './Modal'
 import UIContext from '../../Store/UIContextProvider';
 import Button from '../UI/Button';
+import DropdownButton from '../UI/DropdownButton'
 import Input from '../UI/Input';
 import { DataContext } from '../../Store/DataContextProvider';
 
@@ -11,13 +12,15 @@ function NewSprintModal() {
     const DataCtx = useContext(DataContext);
     const { addNewSprintItem } = DataCtx;
 
+    const [showDropdown, setshowDropdown] = useState(false);
+
     const [newSprintData, setNewSprintData] = useState({
         id: Math.random(),
         sprintVersion: '',
         sprintStartDate: '',
         sprintEndDate: '',
         sprintTeamName: '',
-        sprintStatus: ''
+        sprintStatus: 'Not Started'
     });
 
     const [didEdit, setDidEdit] = useState({
@@ -25,7 +28,6 @@ function NewSprintModal() {
         sprintStartDate: false,
         sprintEndDate: false,
         sprintTeamName: false,
-        sprintStatus: false,
     });
 
     const [touchedFields, setTouchedFields] = useState({
@@ -40,15 +42,17 @@ function NewSprintModal() {
     const sprintStartDateNotValid = didEdit.sprintStartDate && newSprintData.sprintStartDate === '';
     const sprintEndDateNotValid = didEdit.sprintEndDate && newSprintData.sprintEndDate === '';
     const sprintTeamNameNotValid = didEdit.sprintTeamName && newSprintData.sprintTeamName === '';
-    const sprintStatusNotValid = didEdit.sprintStatus && newSprintData.sprintStatus === '';
 
 
     function handleInputChange(e) {
+        // Prevent changes to sprintStatus
         const { id, value } = e.target;
-        setNewSprintData(prevData => ({
-            ...prevData,
-            [id]: value,
-        }));
+        if (id !== 'sprintStatus') {
+            setNewSprintData(prevData => ({
+                ...prevData,
+                [id]: value,
+            }));
+        }
     }
 
     function handleInputBlur(e) {
@@ -71,19 +75,17 @@ function NewSprintModal() {
             sprintStartDate,
             sprintEndDate,
             sprintTeamName,
-            sprintStatus
         } = newSprintData;
 
         const isDataValid =
             sprintVersion.trim() !== '' &&
             sprintStartDate.trim() !== '' &&
             sprintEndDate.trim() !== '' &&
-            sprintTeamName.trim() !== '' &&
-            sprintStatus.trim() !== '';
+            sprintTeamName.trim() !== '';
 
         if (isDataValid) {
             addNewSprintItem(newSprintData);
-            
+
             //clear the form & onBlur statuses
             setNewSprintData({
                 id: '',
@@ -91,7 +93,6 @@ function NewSprintModal() {
                 sprintStartDate: '',
                 sprintEndDate: '',
                 sprintTeamName: '',
-                sprintStatus: ''
             });
 
             setDidEdit({
@@ -99,7 +100,6 @@ function NewSprintModal() {
                 sprintStartDate: false,
                 sprintEndDate: false,
                 sprintTeamName: false,
-                sprintStatus: false,
             });
 
             UICtx.handleNewSprintAddedModal();
@@ -129,12 +129,6 @@ function NewSprintModal() {
                     ...prevFields,
                     [id]: false,
                 }));
-            } else if (didEdit.sprintStatus === false) {
-                const id = 'sprintStatus';
-                setTouchedFields(prevFields => ({
-                    ...prevFields,
-                    [id]: false,
-                }));
             }
         }
     }
@@ -142,6 +136,15 @@ function NewSprintModal() {
     const handleClose = (e) => {
         e.preventDefault();
         UICtx.closeModal();
+    }
+
+    const updateStatus = (value) => {
+        const id = 'sprintStatus'
+        setNewSprintData(prevData => ({
+            ...prevData,
+            [id]: value,
+        }));
+        setshowDropdown(!showDropdown)
     }
 
     return (
@@ -170,10 +173,28 @@ function NewSprintModal() {
                     <div className="new-sprint-team-name">
                         <Input label={"New Sprint Team Name"} type={"text"} id={"sprintTeamName"} value={newSprintData.sprintTeamName} onChange={handleInputChange} onBlur={handleInputBlur} />
                         <div className="control-error">{(sprintTeamNameNotValid || !touchedFields.sprintTeamName) && <p>Please Enter Sprint Team Name</p>}</div>
+                    </div>
 
-                        <Input label={"Sprint Status"} type={"text"} id={"sprintStatus"} value={newSprintData.sprintStatus} onChange={handleInputChange} onBlur={handleInputBlur} />
-                        <div className="control-error">{(sprintStatusNotValid || !touchedFields.sprintStatus) && <p>Please Select a Valid Sprint Status</p>}</div>
+                    <div className="new-sprint-status">
+                        <Input
+                            label={"Sprint Status"}
+                            type={"text"}
+                            id={"sprintStatus"}
+                            value={newSprintData.sprintStatus}
+                            readOnly />
 
+                        <DropdownButton
+                            className='status-dropdown'
+                            open={showDropdown}
+                            onClick={() => { setshowDropdown(!showDropdown) }}>
+                        </DropdownButton>
+                        {showDropdown && (
+                            <div className="status-dropdown-content">
+                                <p onClick={() => { updateStatus('Not Started') }}>Not Started</p>
+                                <p onClick={() => { updateStatus('In-Progress') }}>In-Progress</p>
+                                <p onClick={() => { updateStatus('Completed') }}>Completed</p>
+                            </div>
+                        )}
                     </div>
                 </div>
 

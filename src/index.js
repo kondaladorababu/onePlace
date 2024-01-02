@@ -7,6 +7,7 @@ import NewSprintModal from './Components/Modals/NewSprintModal';
 import DataContextProvider from './Store/DataContextProvider';
 import ExistingSprintItemModal from './Components/Modals/ExistingSprintItemModal';
 import SprintStatusModal from './Components/Modals/SprintStatusModal';
+import WarningModal from './Components/Modals/WarningModal'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
         <NewSprintModal />
         <SprintStatusModal />
         <ExistingSprintItemModal />
+        <WarningModal />
       </UIContextProvider>
     </DataContextProvider>
   </React.StrictMode>

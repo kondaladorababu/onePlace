@@ -72,7 +72,6 @@ function reducer(state, action) {
             }
         case 'FIND_CURRENT_ITEM_DETAILS':
             const id = action.id;
-
             const currentEditingItemDetails = state.sprintItems.find((item) => (
                 item.id === id
             ));
