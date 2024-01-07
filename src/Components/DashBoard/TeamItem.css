@@ -22,6 +22,7 @@
   transform: scale(1.08);
 }
 
+
 @media screen and (max-width: 768px) {
   .team-item {
     height: 100px;

@@ -1,21 +1,21 @@
 import React from 'react';
-import './OneHomeDashBoard.css';
+import './ApplicationDashBoard.css';
 import Sprint from '../Sections/Sprint';
 import HeaderSearch from '../Sections/HeaderSearch';
 import Activities from '../Sections/Activities';
 
-function OneHomeDashBoard() {
+function ApplicationDashBoard() {
     return (
-        <div className='onehome-dashboard-container'>
-            <div className="onehome-dashboard-left">
+        <div className='dashboard-container'>
+            <div className="dashboard-left">
                 <HeaderSearch />
                 <Sprint />
             </div>
-            <div className="onehome-dashboard-right">
+            <div className="dashboard-right">
                 <Activities />
             </div>
         </div>
     )
 }
 
-export default OneHomeDashBoard;
+export default ApplicationDashBoard;

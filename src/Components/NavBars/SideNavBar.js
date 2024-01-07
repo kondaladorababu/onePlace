@@ -11,6 +11,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import UIContext from '../../Store/UIContextProvider';
+import { Link } from 'react-router-dom';
 
 function SideNavBar() {
     const [maxNav, setMaxNav] = useState(true);
@@ -50,7 +51,9 @@ function SideNavBar() {
 
                 {maxNav &&
                     <div className="navigation-headings">
-                        <HeaderIcon className={'header-icon'} Icon={SpaceDashboardIcon} title={'DashBoard'} />
+                        <Link to='/'>
+                            <HeaderIcon className={'header-icon'} Icon={SpaceDashboardIcon} title={'DashBoard'} />
+                        </Link>
                         <HeaderIcon className={'header-icon'} Icon={PeopleIcon} title={'People'} />
                         <HeaderIcon className={'header-icon'} Icon={ChatBubbleRoundedIcon} title={'Messages'} />
                         <HeaderIcon className={'header-icon'} Icon={LabelRoundedIcon} title={'Labels'} />
@@ -59,7 +62,9 @@ function SideNavBar() {
                 }
                 {!maxNav &&
                     <div className="navigation-headings">
-                        <HeaderIcon className={'header-icon'} Icon={SpaceDashboardIcon} />
+                        <Link to='/'>
+                            <HeaderIcon className={'header-icon'} Icon={SpaceDashboardIcon} />
+                        </Link>
                         <HeaderIcon className={'header-icon'} Icon={PeopleIcon} />
                         <HeaderIcon className={'header-icon'} Icon={ChatBubbleRoundedIcon} />
                         <HeaderIcon className={'header-icon'} Icon={LabelRoundedIcon} />
