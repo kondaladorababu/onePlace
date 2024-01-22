@@ -3,41 +3,31 @@ import './TeamBoard.css';
 import TeamItem from './TeamItem';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import Section from '../Sections/Section';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function TeamBoard() {
+    const navigateTo = useNavigate();
+
+    const navigateDashBoard = (teamName) => {
+        navigateTo(`/${teamName}`);
+    }
 
     return (
         <Section SectionTitle={'DashBoard'} Icon={SpaceDashboardIcon}>
             <div className='team-board'>
-                <Link to='/onehomeDashBoard'>
-                    <TeamItem TeamName={'OneHome'} />
-                </Link>
+                <TeamItem TeamName={'OneHome'} onClick={() => { navigateDashBoard('oneHomeDashBoard') }} />
 
-                <Link className={'team-items'} to='/matrixDashBoard'>
-                    <TeamItem TeamName={'Matrix'} />
-                </Link>
+                <TeamItem TeamName={'Matrix'} onClick={() => { navigateDashBoard('matrixDashBoard') }} />
 
-                <Link className={'team-items'} to='/trestleDashBoard'>
-                    <TeamItem TeamName={'Trestle'} />
-                </Link>
+                <TeamItem TeamName={'Trestle'} onClick={() => { navigateDashBoard('trestleDashBoard') }} />
 
-                <Link className={'team-items'} to='/phoenixDashBoard'>
-                    <TeamItem TeamName={'Phoenix'} />
-                </Link>
+                <TeamItem TeamName={'Phoenix'} onClick={() => { navigateDashBoard('phoenixDashBoard') }} />
 
-                <Link className={'team-items'} to='/ldcDashBoard'>
-                    <TeamItem TeamName={'Ldc'} />
-                </Link>
+                <TeamItem TeamName={'Ldc'} onClick={() => { navigateDashBoard('ldcDashBoard') }} />
 
-                <Link className={'team-items'} to='/epwdashBoard'>
-                    <TeamItem TeamName={'EPW'} />
-                </Link>
+                <TeamItem TeamName={'EPW'} onClick={() => { navigateDashBoard('epwDashBoard') }} />
 
-                <Link className={'team-items'} to='/gomlsDashBoard'>
-                    <TeamItem TeamName={'GOMLS'} />
-                </Link>
-
+                <TeamItem TeamName={'GOMLS'} onClick={() => { navigateDashBoard('gomlsDashBoard') }} />
             </div>
         </Section >
     )
