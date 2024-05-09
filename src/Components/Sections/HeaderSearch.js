@@ -28,11 +28,11 @@ function HeaderSearch() {
 
             <div className="search-helper">
                 <div className="search-helper-left">
-                    <h3 className='welcome-text'>Welcome To OneHome</h3>
+                    <span className='welcome-text'>Welcome To OneHome</span>
                 </div>
 
                 <div className="search-helper-right">
-                    <h5 className='sort-by'>Sort by : </h5>
+                    <span className='sort-by'>Sort by : </span>
                     <DropdownButton open={showDropdown} onClick={toggleDropdown}>{'Newest'} </DropdownButton >
                     {showDropdown && (
                         <div className="dropdown-content">

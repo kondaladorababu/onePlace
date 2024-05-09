@@ -25,7 +25,7 @@ function Sprint() {
         <section className='sprint-container'>
             {/* <Link to='..' relative='path'><button>back</button></Link> */}
             <div className="sprint-header">
-                <h4 className='sprint-heading'>Sprint Items:</h4>
+                <span className='sprint-heading'>Sprint Items:</span>
                 <Button onClick={openNewSprintModal} status={'new'}>Add Sprint</Button>
             </div>
 

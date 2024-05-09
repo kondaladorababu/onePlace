@@ -24,12 +24,11 @@
 .sprint-heading {
   text-align: start;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 800;
   padding: 5px;
   flex-basis: 70%;
 }
-
 
 @media only screen and (max-width: 768px) {
   .sprint-container {
