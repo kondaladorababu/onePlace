@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Components/MainPage.css';
 import TopNavBar from './NavBars/TopNavBar';
-import TeamBoard from './DashBoard/TeamBoard';
+import TeamBoard from './ResDashboard/TeamBoard';
 
 
 function MainPage() {
