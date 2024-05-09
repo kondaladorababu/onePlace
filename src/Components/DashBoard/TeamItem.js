@@ -4,7 +4,7 @@ import './TeamItem.css';
 function TeamItem(props) {
     return (
         <div className='team-item' onClick={props.onClick}>
-            <h3>{props.TeamName}</h3>
+            <h4>{props.TeamName}</h4>
         </div>
     )
 }
