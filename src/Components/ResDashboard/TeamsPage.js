@@ -4,6 +4,7 @@ import TopNavBar from '../NavBars/TopNavBar';
 import TeamBoard from './TeamBoard';
 
 
+
 function TeamsPage() {
     return (
         <div className='main-page'>

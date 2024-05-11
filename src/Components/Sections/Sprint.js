@@ -37,7 +37,7 @@ function Sprint() {
                 <span>Back to Dashboard</span>
             </div>
             <div className="sprint-header">
-                <h4 className='sprint-heading'>Sprint Items:</h4>
+                <span className='sprint-heading'>Sprint Items:</span>
                 <Button onClick={openNewSprintModal} status={'new'}>Add Sprint</Button>
             </div>
 

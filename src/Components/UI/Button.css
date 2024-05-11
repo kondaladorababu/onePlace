@@ -2,9 +2,9 @@
   background: #fff;
   border: none;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
-  padding: 5px 20px;
+  padding: 5px 10px;
   width: inherit;
   color: #000000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -26,15 +26,18 @@
 .not-started-color {
   color: rgb(255, 255, 255);
   background-color: #001f3f;
+  width: max-content;
 }
 
 .progress-color {
   background-color: #ff854e;
+  width: max-content;
 }
 
 .completed-color {
   color: white;
   background-color: #28a745;
+  width: max-content;
 }
 
 @media only screen and (max-width: 768px) {
