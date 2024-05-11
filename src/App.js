@@ -43,7 +43,6 @@ const router = createBrowserRouter([
 
 function App() {
   return <RouterProvider router={router}></RouterProvider>
-  // Testing push from new Machine
 }
 
 export default App;

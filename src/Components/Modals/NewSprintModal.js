@@ -154,18 +154,18 @@ function NewSprintModal() {
 
                 <div className="new-sprint-content">
                     <div className="new-sprint-version">
-                        <Input label={"New Sprint Version"} type={"text"} id={"sprintVersion"} value={newSprintData.sprintVersion} onChange={handleInputChange} onBlur={handleInputBlur} />
+                        <Input label={"New Sprint Version"} type={"text"} id={"sprintVersion"} placeholder="Ex:- 1.10.0" value={newSprintData.sprintVersion} onChange={handleInputChange} onBlur={handleInputBlur} />
                         <div className="control-error">{(sprintVersionNotValid || !touchedFields.sprintVersion) && <p>Please Enter Sprint Version</p>}</div>
                     </div>
 
                     <div className="new-sprint-duration">
                         <div className="sprint-start-date">
-                            <Input label={"Sprint Start Date"} type={"text"} id={"sprintStartDate"} value={newSprintData.sprintStartDate} onChange={handleInputChange} onBlur={handleInputBlur} />
+                            <Input label={"Sprint Start Date"} type={"text"} id={"sprintStartDate"} placeholder="Ex:-DD/MM/YYYY" value={newSprintData.sprintStartDate} onChange={handleInputChange} onBlur={handleInputBlur} />
                             <div className="control-error">{(sprintStartDateNotValid || !touchedFields.sprintStartDate) && <p>Please Enter Sprint Start Date</p>}</div>
                         </div>
 
                         <div className="sprint-end-date">
-                            <Input label={"Sprint End Date"} type={"text"} id={"sprintEndDate"} value={newSprintData.sprintEndDate} onChange={handleInputChange} onBlur={handleInputBlur} />
+                            <Input label={"Sprint End Date"} type={"text"} id={"sprintEndDate"} placeholder="Ex:-DD/MM/YYYY" value={newSprintData.sprintEndDate} onChange={handleInputChange} onBlur={handleInputBlur} />
                             <div className="control-error">{(sprintEndDateNotValid || !touchedFields.sprintEndDate) && <p>Please Enter Sprint End Date</p>}</div>
                         </div>
                     </div>

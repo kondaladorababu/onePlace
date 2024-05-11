@@ -1,10 +1,10 @@
 import React from 'react';
-import '../Components/MainPage.css';
-import TopNavBar from './NavBars/TopNavBar';
-import TeamBoard from './DashBoard/TeamBoard';
+import '../ResDashboard/TeamsPage.css';
+import TopNavBar from '../NavBars/TopNavBar';
+import TeamBoard from './TeamBoard';
 
 
-function MainPage() {
+function TeamsPage() {
     return (
         <div className='main-page'>
             <TopNavBar className='top-nav-bar' />
@@ -13,4 +13,4 @@ function MainPage() {
     )
 }
 
-export default MainPage
+export default TeamsPage;

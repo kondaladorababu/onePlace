@@ -4,7 +4,10 @@ import SprintItem from '../Items/SprintItem';
 import Button from '../UI/Button';
 import UIContext from '../../Store/UIContextProvider';
 import { DataContext } from '../../Store/DataContextProvider';
-// import { Link } from 'react-router-dom';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useNavigate } from "react-router-dom";
+
+
 
 function Sprint() {
     const UICtx = useContext(UIContext);
@@ -21,28 +24,39 @@ function Sprint() {
         UICtx.handleNewSprintModal();
     }
 
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/');
+    };
+
     return (
         <section className='sprint-container'>
-            {/* <Link to='..' relative='path'><button>back</button></Link> */}
+            <div className='back-to-dashboard' onClick={handleNavigate}>
+                <KeyboardBackspaceIcon />
+                <span>Back to Dashboard</span>
+            </div>
             <div className="sprint-header">
                 <h4 className='sprint-heading'>Sprint Items:</h4>
                 <Button onClick={openNewSprintModal} status={'new'}>Add Sprint</Button>
             </div>
 
-            {localSprintItems.map((item) => (
-                <SprintItem
-                    key={item.id}
-                    id={item.id}
-                    sprintVersion={item.sprintVersion}
-                    sprintStartDate={item.sprintStartDate}
-                    sprintEndDate={item.sprintEndDate}
-                    sprintTeamName={item.sprintTeamName}
-                    sprintStatus={item.sprintStatus}
-                />
-            ))}
+            {
+                localSprintItems.map((item) => (
+                    <SprintItem
+                        key={item.id}
+                        id={item.id}
+                        sprintVersion={item.sprintVersion}
+                        sprintStartDate={item.sprintStartDate}
+                        sprintEndDate={item.sprintEndDate}
+                        sprintTeamName={item.sprintTeamName}
+                        sprintStatus={item.sprintStatus}
+                    />
+                ))
+            }
 
             <Button status={'Completed'}>Load More</Button>
-        </section>
+        </section >
     )
 }
 
