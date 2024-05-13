@@ -1,43 +1,58 @@
-const item1 = {
-    id: 1,
-    sprintVersion: '4.16.0',
-    sprintStartDate: 'dec/12/23',
-    sprintEndDate: 'dec/22/23',
-    sprintTeamName: 'Pheonix',
-    sprintStatus: 'In-Progress'
-}
-const item2 = {
-    id: 2,
-    sprintVersion: '4.15.0',
-    sprintStartDate: 'dec/12/23',
-    sprintEndDate: 'dec/22/23',
-    sprintTeamName: 'Dragon',
-    sprintStatus: 'Not Started'
-}
-const item3 = {
-    id: 3,
-    sprintVersion: '4.14.0',
-    sprintStartDate: 'dec/12/23',
-    sprintEndDate: 'dec/22/23',
-    sprintTeamName: 'pheonix',
-    sprintStatus: 'Completed',
-}
-const item4 = {
-    id: 4,
-    sprintVersion: '4.13.0',
-    sprintStartDate: 'dec/12/23',
-    sprintEndDate: 'dec/22/23',
-    sprintTeamName: 'Dragon',
-    sprintStatus: 'Completed',
-}
-
 export const initialData = {
-    sprintItems: [item1, item2, item3, item4],
-}
+    sprintItems: [
+        {
+            id: 12,
+            releaseVersion: "42.25.0",
+            startDate: "23/12/24",
+            endDate: "34/23/24",
+            teamName: "Dragon",
+            sprintStatus: "Inprogress"
+        },
+        {
+            id: 13,
+            releaseVersion: "43.2.0",
+            startDate: "23/12/24",
+            endDate: "34/23/24",
+            teamName: "Dragon",
+            sprintStatus: "Inprogress"
+        },
+        {
+            id: 14,
+            releaseVersion: "4.22.0",
+            startDate: "23/12/24",
+            endDate: "34/23/24",
+            teamName: "Dragon",
+            sprintStatus: "Inprogress"
+        },
+        {
+            id: 15,
+            releaseVersion: "4.22.0",
+            startDate: "23/12/24",
+            endDate: "34/23/24",
+            teamName: "Dragon",
+            sprintStatus: "Not Started"
+        },
+        {
+            id: 16,
+            releaseVersion: "4.22.0",
+            startDate: "23/12/24",
+            endDate: "34/23/24",
+            teamName: "Dragon",
+            sprintStatus: "Completed"
+        }
+    ]
+};
+
 
 function reducer(state, action) {
 
     switch (action.type) {
+        case 'SET_SPRINT_ITEMS':
+
+            return {
+                ...state,
+                sprintItems: action.items,
+            }
         case 'ADD_NEW_SPRINT_ITEM':
             const existingSprintItems = state.sprintItems;
             const updatedSprintItems = [action.item, ...existingSprintItems]

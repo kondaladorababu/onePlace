@@ -6,19 +6,43 @@ import UIContext from '../../Store/UIContextProvider';
 import { DataContext } from '../../Store/DataContextProvider';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from "react-router-dom";
-
-
+import axios from 'axios';
+import ErrorModal from '../Modals/ErrorModal';
+import { SPRINT_ITEMS_URL } from '../../Store/api';
 
 function Sprint() {
     const UICtx = useContext(UIContext);
     const DataCtx = useContext(DataContext);
-    const { sprintItems } = DataCtx;
+    const { sprintItems, setSprintItems } = DataCtx;
 
     const [localSprintItems, setLocalSprintItems] = useState(sprintItems);
+    const [isFetching, setIsfetching] = useState(false);
+    const [error, setError] = useState('');
+
 
     useEffect(() => {
         setLocalSprintItems(sprintItems);
     }, [sprintItems]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setIsfetching(true)
+                const response = await axios.get(SPRINT_ITEMS_URL);
+                const resData = response.data;
+
+                if (response.status !== 200) {
+                    throw new Error('Failed to fetch Products');
+                }
+                setSprintItems(resData);
+                setError('');
+            } catch (error) {
+                setError(error);
+            }
+            setIsfetching(false);
+        };
+        fetchData();
+    }, []);
 
     const openNewSprintModal = () => {
         UICtx.handleNewSprintModal();
@@ -29,6 +53,11 @@ function Sprint() {
     const handleNavigate = () => {
         navigate('/');
     };
+
+    const closeErrorModal = () => {
+        setError('');
+    }
+
 
     return (
         <section className='sprint-container'>
@@ -41,21 +70,25 @@ function Sprint() {
                 <Button onClick={openNewSprintModal} status={'new'}>Add Sprint</Button>
             </div>
 
+            {isFetching && <span>Wait its fetching...</span>}
+            {error && <ErrorModal onClose={closeErrorModal} info={'Error Fetching Sprint Items.. Please Try Again Later'} />}
+
+
             {
-                localSprintItems.map((item) => (
+                !isFetching && localSprintItems.map((item, index) => (
                     <SprintItem
-                        key={item.id}
+                        key={index}
                         id={item.id}
-                        sprintVersion={item.sprintVersion}
-                        sprintStartDate={item.sprintStartDate}
-                        sprintEndDate={item.sprintEndDate}
-                        sprintTeamName={item.sprintTeamName}
-                        sprintStatus={item.sprintStatus}
+                        sprintVersion={item.releaseVersion}
+                        sprintStartDate={item.startDate}
+                        sprintEndDate={item.endDate}
+                        sprintTeamName={item.teamName}
+                        sprintStatus={item.status}
                     />
                 ))
             }
 
-            <Button status={'Completed'}>Load More</Button>
+            {!isFetching && <Button status={'Completed'}>Load More</Button>}
         </section >
     )
 }

@@ -13,6 +13,13 @@ export const DataContext = createContext({
 function DataContextProvider(props) {
     const [dataState, dispatch] = useReducer(reducer, initialData);
 
+    const setSprintItems = (sprintItems) => {
+        dispatch({
+            type: 'SET_SPRINT_ITEMS',
+            items: sprintItems,
+        });
+    }
+
     const addNewSprintItem = (newItem) => {
         dispatch({
             type: 'ADD_NEW_SPRINT_ITEM',
@@ -48,6 +55,7 @@ function DataContextProvider(props) {
         editSprintItem,
         CurrentItemDetails: dataState.CurrentItemDetails,
         getEditingItemDetails,
+        setSprintItems,
     }
 
     return (
