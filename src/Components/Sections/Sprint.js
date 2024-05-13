@@ -8,7 +8,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ErrorModal from '../Modals/ErrorModal';
-import { SPRINT_ITEMS_URL } from '../../Store/api';
+import API from '../../Store/api.js'
 
 function Sprint() {
     const UICtx = useContext(UIContext);
@@ -28,7 +28,7 @@ function Sprint() {
         const fetchData = async () => {
             try {
                 setIsfetching(true)
-                const response = await axios.get(SPRINT_ITEMS_URL);
+                const response = await axios.get(API.getSprintItems());
                 const resData = response.data;
 
                 if (response.status !== 200) {
@@ -93,4 +93,4 @@ function Sprint() {
     )
 }
 
-export default Sprint
+export default Sprint;
