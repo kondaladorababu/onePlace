@@ -34,7 +34,7 @@ function DataContextProvider(props) {
         });
     }
 
-    const editSprintItem = (item) => {
+    const updateSprintItem = (item) => {
         dispatch({
             type: 'MODIFY_SPRINT_ITEM',
             item: item,
@@ -52,7 +52,7 @@ function DataContextProvider(props) {
         sprintItems: dataState.sprintItems,
         addNewSprintItem,
         removeSprintItem,
-        editSprintItem,
+        updateSprintItem,
         CurrentItemDetails: dataState.CurrentItemDetails,
         getEditingItemDetails,
         setSprintItems,

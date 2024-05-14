@@ -5,23 +5,27 @@ import Modal from '../Modals/Modal.js'
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import DropdownButton from '../UI/DropdownButton.js';
+import API from '../../Store/api.js';
+import axios from 'axios';
 
 function ExistingSprintItemModal() {
     const UICtx = useContext(UIContext);
 
     const DataCtx = useContext(DataContext);
-    const { editSprintItem, CurrentItemDetails } = DataCtx;
+    const { updateSprintItem, CurrentItemDetails } = DataCtx;
 
     const [showDropdown, setShowDropdown] = useState(false);
+    const [isUpdating, setIsUpdating] = useState(false);
+    const [error, setError] = useState(false);
 
 
     const [currentSprintData, setcurrentSprintData] = useState({
         id: '',
-        sprintVersion: '',
-        sprintStartDate: '',
-        sprintEndDate: '',
-        sprintTeamName: '',
-        sprintStatus: ''
+        releaseVersion: '',
+        startDate: '',
+        endDate: '',
+        teamName: '',
+        status: ''
     });
 
     useEffect(() => {
@@ -32,17 +36,17 @@ function ExistingSprintItemModal() {
 
 
     const [didEdit, setDidEdit] = useState({
-        sprintVersion: false,
-        sprintStartDate: false,
-        sprintEndDate: false,
-        sprintTeamName: false,
-        sprintStatus: false,
+        releaseVersion: false,
+        startDate: false,
+        endDate: false,
+        teamName: false,
+        status: false,
     });
 
-    const sprintVersionNotValid = didEdit.sprintVersion && currentSprintData.sprintVersion === '';
-    const sprintStartDateNotValid = didEdit.sprintStartDate && currentSprintData.sprintStartDate === '';
-    const sprintEndDateNotValid = didEdit.sprintEndDate && currentSprintData.sprintEndDate === '';
-    const sprintTeamNameNotValid = didEdit.sprintTeamName && currentSprintData.sprintTeamName === '';
+    const releaseVersionNotValid = didEdit.releaseVersion && currentSprintData.releaseVersion === '';
+    const startDateNotValid = didEdit.startDate && currentSprintData.startDate === '';
+    const endDateNotValid = didEdit.endDate && currentSprintData.endDate === '';
+    const teamNameNotValid = didEdit.teamName && currentSprintData.teamName === '';
 
     function handleInputChange(e) {
         const { id, value } = e.target;
@@ -60,26 +64,42 @@ function ExistingSprintItemModal() {
         }));
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const {
-            sprintVersion,
-            sprintStartDate,
-            sprintEndDate,
-            sprintTeamName,
-            sprintStatus
+            releaseVersion,
+            startDate,
+            endDate,
+            teamName,
+            status
         } = currentSprintData;
 
         const isDataValid =
-            sprintVersion.trim() !== '' &&
-            sprintStartDate.trim() !== '' &&
-            sprintEndDate.trim() !== '' &&
-            sprintTeamName.trim() !== '' &&
-            sprintStatus.trim() !== '';
+            releaseVersion.trim() !== '' &&
+            startDate.trim() !== '' &&
+            endDate.trim() !== '' &&
+            teamName.trim() !== '' &&
+            status.trim() !== '';
 
         if (isDataValid) {
-            editSprintItem(currentSprintData);
-            UICtx.handleSprintUpdatedModal();
+
+            try {
+                setIsUpdating(true);
+
+                const response = await axios.put(API.updateSprintItem(), currentSprintData);
+                if (response.status !== 200) {
+                    throw new Error("Error in Updating Sprint Item");
+                }
+
+                setIsUpdating(false);
+                
+                updateSprintItem(currentSprintData);
+                UICtx.handleSprintUpdatedModal();
+            } catch (error) {
+                setError(true);
+                setIsUpdating(false);
+            }
+
         } else {
             return;
         }
@@ -91,7 +111,7 @@ function ExistingSprintItemModal() {
     }
 
     const updateStatus = (value) => {
-        const id = 'sprintStatus'
+        const id = 'status'
         setcurrentSprintData(prevData => ({
             ...prevData,
             [id]: value,
@@ -107,33 +127,45 @@ function ExistingSprintItemModal() {
 
                 <div className="new-sprint-content">
                     <div className="new-sprint-version">
-                        <Input label={"New Sprint Version"} type={"text"} id={"sprintVersion"} value={currentSprintData.sprintVersion} onChange={handleInputChange} onBlur={handleInputBlur} />
-                        <div className="control-error">{(sprintVersionNotValid) && <p>Please Enter Sprint Version</p>}</div>
+                        <Input label={"New Sprint Version"} type={"text"} id={"releaseVersion"}
+                            value={currentSprintData.releaseVersion}
+                            onChange={handleInputChange}
+                            onBlur={handleInputBlur} />
+                        <div className="control-error">{(releaseVersionNotValid) && <p>Please Enter Sprint Version</p>}</div>
                     </div>
 
                     <div className="new-sprint-duration">
                         <div className="sprint-start-date">
-                            <Input label={"Sprint Start Date"} type={"text"} id={"sprintStartDate"} value={currentSprintData.sprintStartDate} onChange={handleInputChange} onBlur={handleInputBlur} />
-                            <div className="control-error">{(sprintStartDateNotValid) && <p>Please Enter Sprint Start Date</p>}</div>
+                            <Input label={"Sprint Start Date"} type={"text"} id={"startDate"}
+                                value={currentSprintData.startDate}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur} />
+                            <div className="control-error">{(startDateNotValid) && <p>Please Enter Sprint Start Date</p>}</div>
                         </div>
 
                         <div className="sprint-end-date">
-                            <Input label={"Sprint End Date"} type={"text"} id={"sprintEndDate"} value={currentSprintData.sprintEndDate} onChange={handleInputChange} onBlur={handleInputBlur} />
-                            <div className="control-error">{(sprintEndDateNotValid) && <p>Please Enter Sprint End Date</p>}</div>
+                            <Input label={"Sprint End Date"} type={"text"} id={"endDate"}
+                                value={currentSprintData.endDate}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur} />
+                            <div className="control-error">{(endDateNotValid) && <p>Please Enter Sprint End Date</p>}</div>
                         </div>
                     </div>
 
                     <div className="new-sprint-team-name">
-                        <Input label={"New Sprint Team Name"} type={"text"} id={"sprintTeamName"} value={currentSprintData.sprintTeamName} onChange={handleInputChange} onBlur={handleInputBlur} />
-                        <div className="control-error">{(sprintTeamNameNotValid) && <p>Please Enter Sprint Team Name</p>}</div>
+                        <Input label={"New Sprint Team Name"} type={"text"} id={"teamName"}
+                            value={currentSprintData.teamName}
+                            onChange={handleInputChange}
+                            onBlur={handleInputBlur} />
+                        <div className="control-error">{(teamNameNotValid) && <p>Please Enter Sprint Team Name</p>}</div>
                     </div>
 
                     <div className="new-sprint-status">
                         <Input
                             label={"Sprint Status"}
                             type={"text"}
-                            id={"sprintStatus"}
-                            value={currentSprintData.sprintStatus}
+                            id={"status"}
+                            value={currentSprintData.status}
                             readOnly />
 
                         <DropdownButton
@@ -152,8 +184,21 @@ function ExistingSprintItemModal() {
                 </div>
 
                 <div className="control-row">
-                    <Button status={'new'} onClick={handleClose}>{'Close'}</Button>
-                    <Button status={'Completed'} onClick={handleSubmit} >{'Submit Changes'}</Button>
+                    {isUpdating && (
+                        <span>Updating...</span>
+                    )}
+
+                    {error && (
+                        <span>Something Went Wrong Pease Try Again...</span>
+                    )}
+
+                    {!isUpdating && !error && (
+                        <>
+                            <Button status={'new'} onClick={handleClose}>{'Close'}</Button>
+                            <Button status={'Completed'} onClick={handleSubmit} >{'Submit Changes'}</Button>
+                        </>
+                    )}
+
                 </div>
             </form>
         </Modal >
