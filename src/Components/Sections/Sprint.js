@@ -6,9 +6,10 @@ import UIContext from '../../Store/UIContextProvider';
 import { DataContext } from '../../Store/DataContextProvider';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import ErrorModal from '../Modals/ErrorModal';
-import API from '../../Store/api.js'
+import { useFetch } from '../hooks/useFetch.js';
+import { fetchSprintItems } from '../../http.js';
+
 
 function Sprint() {
     const UICtx = useContext(UIContext);
@@ -16,33 +17,17 @@ function Sprint() {
     const { sprintItems, setSprintItems } = DataCtx;
 
     const [localSprintItems, setLocalSprintItems] = useState(sprintItems);
-    const [isFetching, setIsfetching] = useState(false);
-    const [error, setError] = useState('');
 
 
     useEffect(() => {
         setLocalSprintItems(sprintItems);
     }, [sprintItems]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsfetching(true)
-                const response = await axios.get(API.getSprintItems(), {});
-                const resData = response.data;
+    const { isFetching, error, setError, fetchedData } = useFetch(fetchSprintItems, []);
 
-                if (response.status !== 200) {
-                    throw new Error('Failed to fetch Products');
-                }
-                setSprintItems(resData.reverse());
-                setError('');
-            } catch (error) {
-                setError(error);
-            }
-            setIsfetching(false);
-        };
-        fetchData();
-    }, []);
+    useEffect(() => {
+        setSprintItems(fetchedData);
+    }, [fetchedData]);
 
     const openNewSprintModal = () => {
         UICtx.handleNewSprintModal();
