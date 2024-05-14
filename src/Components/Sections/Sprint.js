@@ -28,13 +28,13 @@ function Sprint() {
         const fetchData = async () => {
             try {
                 setIsfetching(true)
-                const response = await axios.get(API.getSprintItems());
+                const response = await axios.get(API.getSprintItems(), {});
                 const resData = response.data;
 
                 if (response.status !== 200) {
                     throw new Error('Failed to fetch Products');
                 }
-                setSprintItems(resData);
+                setSprintItems(resData.reverse());
                 setError('');
             } catch (error) {
                 setError(error);
